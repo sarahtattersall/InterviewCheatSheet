@@ -1,0 +1,38 @@
+\section{Sorting}
+
+\begin{center}
+\begin{longtable}{|l|l|l|p{7cm}|}
+\hline
+\textbf{Name} & \textbf{Average complexity} & \textbf{Worst Complexity} & \textbf{Description} \\
+\hline
+Quick sort & O(nlog(n)) & O(n$^{2}$) 
+           & \begin{enumerate}
+                \item Pick a random pivot value 
+                \item Partition into items smaller than the value (left) and 
+                      items larger (right)
+                \item Recursively apply this to the left and right subsections
+                      until they contain one value
+              \end{enumerate}\\
+\hline
+
+Merge sort & O(nlog(n)) & O(nlog(n))) 
+           & \begin{enumerate}
+                \item Divide unsorted list into n subsets
+                \item Compare each element with adjacent list to sort and merge
+                      the two
+                \item Recursively do this until only one list is left
+              \end{enumerate}\\
+
+\hline
+
+Heap sort & O(nlog(n)) & (nlog(n)) 
+          & \begin{enumerate}
+                \item First build a max heap from the data [O(n) time]
+                \item Repeatedly remove the largest element from the heap, 
+                      it takes log(n) time for each removal
+
+              \end{enumerate}\\
+\hline
+
+\end{longtable}
+\end{center}
