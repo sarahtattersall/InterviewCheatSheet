@@ -1,0 +1,28 @@
+\subsection{Searching}
+\begin{center}
+\begin{longtable}{|l|l|l|p{7cm}|}
+\hline
+\textbf{Name} & \textbf{Average complexity} & \textbf{Worst Complexity} & \textbf{Description} \\
+\hline
+Binary Search & O(nlog(n)) & O(nlog(n))
+           & \begin{enumerate}
+                \item Input is a sorted list of elements
+                \item If the middle element of the list is smaller than the value
+                      recurse with left sublist
+                \item Else recurse with right sublist
+                \item If the list is empty the item does not exist
+              \end{enumerate}\\
+
+\hline
+
+Brute force & O(n) & O(n)
+           & \begin{enumerate}
+                \item Input can be sorted or unsorted list of elements
+                \item Look through entire array
+                \item This is the best you can do with unsorted data
+              \end{enumerate}\\
+\hline
+
+
+\end{longtable}
+\end{center}
