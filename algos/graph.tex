@@ -1,0 +1,78 @@
+\subsection{Searching}
+\begin{center}
+\begin{longtable}{|p{4cm}|p{4cm}|p{7cm}|}
+\hline
+\textbf{Name} & \textbf{Worst Complexity} & \textbf{Description} \\
+\hline
+Depth First Search & O(\textbar E\textbar + \textbar V\textbar )
+           & \begin{enumerate}
+                \item Push first vertex onto a stack
+                \item Pop vertex off the stack \& process
+                \item Loop through vertex successors, if not already seen
+                      add it to the stack
+                \item Repeat until stack is empty
+              \end{enumerate}\\
+\hline
+
+Breadth First Search & O(\textbar E\textbar + \textbar V\textbar )
+           & \begin{enumerate}
+                \item Push first vertex onto a queue
+                \item Pop vertex off the queue \& process
+                \item Loop through vertex successors, if not already seen
+                      add it to the stack
+                \item Repeat until stack is empty
+              \end{enumerate}\\
+\hline
+ 
+Prims MST priority queue/min heap & O(\textbar V\textbar log\textbar V\textbar + \textbar E\textbar log\textbar V\textbar ) $\implies$ O(\textbar E\textbar log\textbar V\textbar) 
+            & \begin{enumerate}
+                \item Push first vertex's edges onto a priority queue
+                \item While the priority queue is not empty do:
+                \item Poll the smallest edge and add it to the mst, if its
+                      connecting vertex has other edges to it in the 
+                      priority queue, remove these because this edge was smaller
+                      and they don't need looking at.
+              \end{enumerate}\\
+
+\hline
+
+Kruskals MST & O(\textbar E\textbar log\textbar V\textbar) 
+         & \begin{enumerate}
+                \item Push all edges onto a priority queue
+                \item Pop first V edges off the queue, for each edge:
+                \item if egde is not already in a connected tree of the answer 
+                      add it to the mst. This is tested via a union find data
+                      structure
+
+              \end{enumerate}\\
+
+\hline
+
+Dijkstra & O((\textbar V \textbar + \textbar E \textbar) log \textbar V \textbar
+         & \begin{enumerate}
+                \item Assign distance to the initial node 0 and the others 
+                      $\infinity$
+                 \item Add initial node to a priority queue and then whilst the
+                       queue is not empty do:
+                 \item Pop closest vertex off queue, for all its edges if any
+                       edges make the distance closer than the current recorded distance update
+                       the vertex in the priority queue
+                 \item Final path can be used via back tracking
+              \end{enumerate}\\
+
+\hline
+
+A* & 
+   & \begin{enumerate}
+        \item A* uses a best first search, keeping a sorted priority queue
+              of alternative path segments along the way
+        \item It uses a heuristic $f(x)$ made up of $g(x)$ which is the 
+              past path cost, and $h(x)$ which is the future path cost estimation
+        \item Starting with the initial node it maintains a priority queue of nodes
+              (known as the fringe). The lower $f(x)$ the higher the priority
+      \end{enumerate}\\ 
+\hline
+
+
+\end{longtable}
+\end{center}
