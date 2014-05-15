@@ -1,6 +1,6 @@
 \section{Data Structures}
 \begin{center}
-\begin{longtable}{|l|p{3cm}|l|l|l|}
+\begin{longtable}{|l|p{3cm}|l|l|p{3cm}|}
 \hline
 \textbf{Name} & \textbf{Insertion} & \textbf{Deletion} & \textbf{Index} & \textbf{search} \\
 \hline 
@@ -26,6 +26,10 @@ Heap & O(log(n)) & O(log(n)) to remove max/min elem & n/a & n/a \\
 \hline 
 
 Trie & O(k) where k is the length of the word & O(k) & n/a &  O(k) \\
+
+\hline
+
+Bloom filter & O(k) where k is the number of hash functions & n/a & n/a & O(k) to tell us that it is `definitely not in the set'\\
 
 \hline
 
