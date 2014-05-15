@@ -1,4 +1,4 @@
-\subsection{Searching}
+\subsection{Graph}
 \begin{center}
 \begin{longtable}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
@@ -23,6 +23,75 @@ Breadth First Search & O(\textbar E\textbar + \textbar V\textbar )
                 \item Repeat until stack is empty
               \end{enumerate}\\
 \hline
+
+BST pre-order & O(n) 
+              & {\begin{lstlisting}[language=Java]
+Deque<TreeNode> stack = new ArrayDeque<>();
+stack.push(root);
+while(!stack.isEmpty()) {
+  TreeNode node = stack.pop();
+  // Process node here
+  if (node.right != null) {
+    stack.push(node.right);
+  }
+  if (node.left != null) {
+    stack.push(node.left);
+  }
+}
+                  \end{lstlisting}
+
+                } \\
+\hline
+
+
+BST in-order & O(n) 
+              & {\begin{lstlisting}[language=Java]
+Deque<TreeNode> stack = new ArrayDeque<>();
+TreeNode node = root;
+while (!stack.isEmpty() || node != null) {
+  if (node != null) {
+    stack.push(node);
+    node = node.left;
+  } else {
+    node = stack.pop();
+    // Process node here
+    node = node.right;
+  }
+}
+                  \end{lstlisting}
+
+                } \\
+\hline
+
+BST post-order & O(n) 
+              & {\begin{lstlisting}[language=Java]
+Deque<TreeNode> stack = new ArrayDeque<>();
+stack.push(root);
+TreeNode prev = null;
+while(!stack.isEmpty()) {
+  TreeNode current = stack.peek();
+  if (prev == null || prev.left.equals(current) || prev.right.equals(current)) {
+    if (current.left != null) {
+      stack.push(current.left);
+    }
+    else if (current.right != null) {
+      stack.push(current.right);
+    }
+  } else if (current.left.equals(prev)) {
+    if (current.right != null) {
+      stack.push(current.right);
+    }
+  } else {
+    //Process current here
+    stack.pop();
+  }
+  prev = current;    
+}
+                  \end{lstlisting}
+
+                } \\
+\hline
+
  
 Prims MST priority queue/min heap & O(\textbar V\textbar log\textbar V\textbar + \textbar E\textbar log\textbar V\textbar ) $\implies$ O(\textbar E\textbar log\textbar V\textbar) 
             & \begin{enumerate}
@@ -51,7 +120,7 @@ Kruskals MST & O(\textbar E\textbar log\textbar V\textbar)
 Dijkstra & O((\textbar V \textbar + \textbar E \textbar) log \textbar V \textbar
          & \begin{enumerate}
                 \item Assign distance to the initial node 0 and the others 
-                      $\infinity$
+                      $\infty$
                  \item Add initial node to a priority queue and then whilst the
                        queue is not empty do:
                  \item Pop closest vertex off queue, for all its edges if any
